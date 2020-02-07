@@ -1,0 +1,36 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://www.baina.com/spring/soap/api/empreg" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.baina.com/spring/soap/api/empreg" targetNamespace="http://www.baina.com/spring/soap/api/empreg">
+<wsdl:types>
+<xsd:schema xmlns:tns="http://www.baina.com/spring/soap/api/regemp" xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.baina.com/spring/soap/api/empreg">
+<xsd:element name="Employee">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="name" type="xsd:string"/>
+<xsd:element name="age" type="xsd:int"/>
+<xsd:element name="salary" type="xsd:long"/>
+<xsd:element name="eid" type="xsd:int"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="EmployeeDetails">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="name" type="xsd:string"/>
+<xsd:element name="age" type="xsd:int"/>
+<xsd:element name="salary" type="xsd:long"/>
+<xsd:element name="eid" type="xsd:int"/>
+<xsd:element name="results" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:schema>
+</wsdl:types>
+<wsdl:portType name="EmployeeRegister"> </wsdl:portType>
+<wsdl:binding name="EmployeeRegisterSoap11" type="tns:EmployeeRegister">
+<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+</wsdl:binding>
+<wsdl:service name="EmployeeRegisterService">
+<wsdl:port binding="tns:EmployeeRegisterSoap11" name="EmployeeRegisterSoap11">
+<soap:address location="http://localhost:8080/ws"/>
+</wsdl:port>
+</wsdl:service>
+</wsdl:definitions>
